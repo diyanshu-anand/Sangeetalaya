@@ -1,0 +1,9 @@
+.app {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: linear-gradient(120deg, #f4c542, #2b2b2b);
+  color: white;
+  font-size: 2rem;
+}
