@@ -602,3 +602,9 @@
   font-size: 0.85rem;
   color: #aaa;
 }
+
+
+.organizer-card img{
+  border-radius: 50%;
+  width: 88px;
+}

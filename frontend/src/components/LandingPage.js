@@ -5,36 +5,47 @@ import logo from "../assests/Sangeetalaya_logo.png";
 import parth from "../assests/Parth.jpeg"
 import spicmacay from "../assests/spicmacay.png"
 import AuthModal from "./AuthModal";
+import mummy from "../assests/FounderImage.jpeg"
+import assisthead from "../assests/AssistHead.jpeg"
+import kalavikaskendra from "../assests/KalaVikasKendra.jpeg"
+import Progyatsav from "../assests/Pragyotsav.jpg"
+import BharatVikasParsihad from "../assests/Bharatvikasparishad.jpg"
+import Pranavam from "../assests/Pranavam.png"
+import AIDA from "../assests/AIDA.jpg"
+import Tabla from "../assests/tabla.jpg"
+import Spiritual_Bliss from "../assests/Spiritual Bliss.jpg"
+import Raag_Yaman from "../assests/Raag_Yaman.jpg"
+
 const performances = [
   {
     id: 1,
     title: "Raga Yaman - Evening Serenity",
     description: "A soothing performance bringing calmness to the listener.",
-    image: "/images/performance1.jpg",
+    image: Raag_Yaman,
   },
   {
     id: 2,
     title: "Tabla Solo - Rhythm of Heart",
     description: "An energetic tabla solo to mesmerize rhythm lovers.",
-    image: "/images/performance2.jpg",
+    image: Tabla,
   },
   {
     id: 3,
     title: "Bhajan - Spiritual Bliss",
     description: "Traditional devotional music to elevate the soul.",
-    image: "/images/performance3.jpg",
+    image: Spiritual_Bliss,
   },
   {
     id: 4,
     title: "Founder's Desk",
     description: "Mona Anand",
-    image: "/images/profile.jpg"
+    image: mummy
   },
   {
     id: 5,
     title: "Assist Head",
     description: "Basant Rajak",
-    image: "/images/basant_sir.jpg"
+    image: assisthead
   }
 ];
 
@@ -61,11 +72,11 @@ const feedbacks = [
 ];
 
 const organizers = [
-  { id: 1, name: "SPIC MACAY", logo: spicmacay },
-  { id: 2, name: "All India Radio", logo: "/images/air.png" },
-  { id: 3, name: "Sangeet Natak Akademi", logo: "/images/sna.png" },
-  { id: 4, name: "Doordarshan", logo: "/images/doordarshan.png" },
-  { id: 5, name: "Prayag Sangeet Samiti", logo: "/images/prayag.png" }
+  { id: 1, name: "Bharat Vikas Parishad", logo: BharatVikasParsihad },
+  { id: 2, name: "Pragyotsav", logo: Progyatsav },
+  { id: 3, name: "Kala Vikas Kendra", logo: kalavikaskendra },
+  { id: 4, name: "Pranavam", logo: Pranavam },
+  { id: 5, name: "All India Dance Association", logo: AIDA}
 ]
 
 function LandingPage() {
@@ -133,7 +144,7 @@ function LandingPage() {
   };
   Issues:
 
-  // You created two intervals inside each other (const interval inside another setInterval).
+  // created two intervals inside each other (const interval inside another setInterval).
 
   // The return () => clearInterval(interval) is inside the wrong place → it never runs.
 
