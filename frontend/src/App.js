@@ -12,7 +12,8 @@ function App() {
 
   useEffect(() => {
     axios
-      .get("http://localhost:5000/")
+      // .get("http://localhost:5000/")
+      .get("https://sangeetalaya.onrender.com")
       .then((res) => setMsg(res.data))
       .catch((err) => console.log(err));
   }, []);
