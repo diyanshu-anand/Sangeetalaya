@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import "../styles/AuthModal.css";
 import logo from "../assests/Sangeetalaya_logo.png";
+import { useNavigate } from "react-router-dom";
 
 function AuthModal({ isOpen, onClose }) {
     const [activeTab, setActiveTab] = useState("login");
