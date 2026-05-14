@@ -8,7 +8,7 @@
 
 //   useEffect(() => {
 //     // Request backend to generate secure order + QR
-//     fetch("http://localhost:5000/api/payments/create-order", {
+//     fetch("https://sangeetalaya.onrender.com/api/payments/create-order", {
 //       method: "POST",
 //       headers: {
 //         "Content-Type": "application/json",
@@ -105,7 +105,7 @@ function CheckoutModal({ course, onClose }) {
 
   const createOrder = async () => {
     setLoading(true);
-    const res = await fetch("http://localhost:5000/api/payments/create-order", {
+    const res = await fetch("https://sangeetalaya.onrender.com/api/payments/create-order", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -127,7 +127,7 @@ function CheckoutModal({ course, onClose }) {
   const submitManualPayment = async () => {
     if (!txnId) return alert("Enter transaction ID");
 
-    await fetch("http://localhost:5000/api/payments/manual-submit", {
+    await fetch("https://sangeetalaya.onrender.com/api/payments/manual-submit", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",

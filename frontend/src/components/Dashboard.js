@@ -22,7 +22,7 @@ function Dashboard() {
     // Fetch courses
     const fetchCourses = async () => {
       try {
-        const res = await fetch("http://localhost:5000/api/courses");
+        const res = await fetch("https://sangeetalaya.onrender.com/api/courses");
         if (!res.ok) throw new Error("Failed to fetch courses");
         const data = await res.json();
         setCourses(data);
