@@ -19,7 +19,7 @@ app.use(express.json({ limit: "10mb" }));
 app.use(cors({
     origin: [
         "http://localhost:3000",
-        "https://your-frontend-name.onrender.com"
+        "https://sangeetalaya.onrender.com"
     ],
     credentials: true
 }));
