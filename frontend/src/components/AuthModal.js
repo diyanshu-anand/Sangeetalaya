@@ -11,6 +11,9 @@ function AuthModal({ isOpen, onClose }) {
         confirmPassword: "",
     });
 
+    const navigate = useNavigate();
+
+
     if (!isOpen) return null;
 
     const handleChange = (e) => {
@@ -37,7 +40,7 @@ function AuthModal({ isOpen, onClose }) {
             // if (res.ok) {
             //     localStorage.setItem("token", data.token);
             //     alert("Login Successful!");
-            //     window.location.href = "/dashboard";
+            //     navigate("/dashboard");
             //     onClose();
             // } THIS WAS CAUSING ERROR OF ADMIN USER AS THIS CODE WAS NOT STORING USER DATA AND RATHER STORING SOMETHING DIFFERENT WHICH WAS TOKEN THEREFORE FOR INSTANCE IT WAS SHOWING ADMIN USER.
             if (res.ok){
@@ -45,7 +48,7 @@ function AuthModal({ isOpen, onClose }) {
                 localStorage.setItem("user", JSON.stringify(data.user)); // missing line
 
                 alert("Login Successfull!!!");
-                window.location.href = "/dashboard";
+                navigate("/dashboard");
                 onClose();
             }else {
                 const message = data.error ||
@@ -88,7 +91,7 @@ function AuthModal({ isOpen, onClose }) {
                 localStorage.setItem("user", JSON.stringify(data.user)); // much required one
 
                 alert("Signup Successfull!!!!");
-                window.location.href = "/dashboard";
+                navigate("/dashboard");
                 onClose();
             }else {
                 // backend sends either `error` or `errors` object
