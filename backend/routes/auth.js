@@ -32,8 +32,8 @@ router.post("/signup", authLimiter, async (req, res) => {
         }
 
         // Hash password
-        const salt = await bcrypt.genSalt(10);
-        const passwordHash = await bcrypt.hash(password, salt);
+        const salt = await bcryptjs.genSalt(10);
+        const passwordHash = await bcryptjs.hash(password, salt);
 
         // Save user
         const user = new User({ name, email, passwordHash });
@@ -70,7 +70,7 @@ router.post("/login", authLimiter, async (req, res) => {
         const user = await User.findOne({ email });
         if (!user) return res.status(400).json({ error: "Invalid credentials" });
 
-        const isMatch = await bcrypt.compare(password, user.passwordHash);
+        const isMatch = await bcryptjs.compare(password, user.passwordHash);
         if (!isMatch) return res.status(400).json({ error: "Invalid credentials" });
 
         const token = jwt.sign(
@@ -140,8 +140,8 @@ router.post("/reset-password/:token", async (req, res) => {
         }
 
         // Hash new password
-        const salt = await bcrypt.genSalt(10);
-        user.passwordHash = await bcrypt.hash(newPassword, salt);
+        const salt = await bcryptjs.genSalt(10);
+        user.passwordHash = await bcryptjs.hash(newPassword, salt);
         user.resetPasswordToken = undefined;
         user.resetPasswordExpire = undefined;
 
