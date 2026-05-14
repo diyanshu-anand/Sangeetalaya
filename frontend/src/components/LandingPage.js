@@ -148,7 +148,7 @@ function LandingPage() {
 
   // The return () => clearInterval(interval) is inside the wrong place → it never runs.
 
-  // You forgot the dependency array for the outer useEffect.
+  // forgot the dependency array for the outer useEffect.
   // useEffect(()=>{
   //   const interval = setInterval(() => {
   //     const interval = setInterval(() => {

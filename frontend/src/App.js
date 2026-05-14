@@ -6,6 +6,7 @@ import LandingPage from "./components/LandingPage";
 import ForgotPassword from "./pages/ForgetPassowrd"; // import page
 import Dashboard from "./components/Dashboard";
 import CourseIntro from "./components/CourseIntro";
+import LoginPanel from "./components/Login";
 function App() {
   const [msg, setMsg] = useState("");
 
@@ -23,6 +24,7 @@ function App() {
         <Route path="/forgot-password" element={<ForgotPassword />} />
         <Route path="/dashboard" element={<Dashboard />} />
         <Route path="/course/:id" element={<CourseIntro />} />
+        {/* <Route path="/login" element={<AuthModal />} /> */}
       </Routes>
     </Router>
   );

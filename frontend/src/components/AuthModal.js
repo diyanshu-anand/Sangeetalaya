@@ -34,12 +34,20 @@ function AuthModal({ isOpen, onClose }) {
 
             const data = await res.json();
 
-            if (res.ok) {
+            // if (res.ok) {
+            //     localStorage.setItem("token", data.token);
+            //     alert("Login Successful!");
+            //     window.location.href = "/dashboard";
+            //     onClose();
+            // } THIS WAS CAUSING ERROR OF ADMIN USER AS THIS CODE WAS NOT STORING USER DATA AND RATHER STORING SOMETHING DIFFERENT WHICH WAS TOKEN THEREFORE FOR INSTANCE IT WAS SHOWING ADMIN USER.
+            if (res.ok){
                 localStorage.setItem("token", data.token);
-                alert("Login Successful!");
+                localStorage.setItem("user", JSON.stringify(data.user)); // missing line
+
+                alert("Login Successfull!!!");
                 window.location.href = "/dashboard";
                 onClose();
-            } else {
+            }else {
                 const message = data.error ||
                     (data.errors ? Object.values(data.errors).join("\n") : "Login Failed");
                 alert(message);
@@ -70,11 +78,19 @@ function AuthModal({ isOpen, onClose }) {
 
             const data = await res.json();
 
-            if (res.ok) {
+            // if (res.ok) {
+            //     localStorage.setItem("token", data.token);
+            //     alert("Signup Successful!");
+            //     onClose();
+            // }THIS WAS CAUSING ERROR OF ADMIN USER AS THIS CODE WAS NOT STORING USER DATA AND RATHER STORING SOMETHING DIFFERENT WHICH WAS TOKEN THEREFORE FOR INSTANCE IT WAS SHOWING ADMIN USER.
+            if (res.ok){
                 localStorage.setItem("token", data.token);
-                alert("Signup Successful!");
+                localStorage.setItem("user", JSON.stringify(data.user)); // much required one
+
+                alert("Signup Successfull!!!!");
+                window.location.href = "/dashboard";
                 onClose();
-            } else {
+            }else {
                 // backend sends either `error` or `errors` object
                 const message = data.error ||
                     (data.errors ? Object.values(data.errors).join("\n") : "Signup Failed");

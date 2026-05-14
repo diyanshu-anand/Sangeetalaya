@@ -3,10 +3,12 @@ import React, { useEffect, useState } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import "../styles/CourseIntro.css";
 import logo from "../assests/Sangeetalaya_logo.png";
+import CheckoutModal from "./checkoutmodal";
 
 function CourseIntro() {
   const { id } = useParams();
   const [course, setCourse] = useState(null);
+  const [showCheckout,setshowCheckout] = useState(false);
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -39,18 +41,48 @@ function CourseIntro() {
 
       {/* Course Info */}
       <div className="course-intro-content">
-        <img src={course.image} alt={course.title} className="intro-image" />
-        <h2>{course.title}</h2>
-        <p className="course-full-desc">{course.fullDescription}</p>
+        {/* <img src={course.image} alt={course.title} className="intro-image" /> */}
+        {/* <h2>{course.title}</h2> */}
+        {/* <p className="course-full-desc">{course.fullDescription}</p> this was resulting in data ui mismatch */}
+
+
+        <img
+          src={course.thumbnail || "https://via.placeholder.com/600"}
+          alt={course.title}
+          className="intro-image"
+        />
+
+        <p className="course-full-desc">{course.description}</p>
+
 
         {/* Optional: Course metadata */}
-        <div className="course-meta">
+        {/* <div className="course-meta">
           <p><strong>Duration:</strong> {course.duration || "N/A"}</p>
           <p><strong>Level:</strong> {course.level || "All Levels"}</p>
           <p><strong>Instructor:</strong> {course.instructor || "Sangeetalaya Faculty"}</p>
+        </div> data ui mismatch*/}
+
+        <div className="course-meta">
+          <p>
+            <strong>Total Lessons:</strong> {course.lessons?.length || 0}
+          </p>
+          <p>
+            <strong>Category:</strong> {course.category || "General"}
+          </p>
+          <p>
+            <strong>Price:</strong> ₹{course.price}
+          </p>
+          <p>
+            <strong>Instructor:</strong> <strong>MONA ANAND</strong>
+          </p>
         </div>
 
-        <button className="purchase-btn">Purchase Course</button>
+
+        <button className="purchase-btn" onClick={() => setshowCheckout(true)}>Purchase Course</button>
+
+        {showCheckout && (
+          <CheckoutModal course={course} onClose={()=> setshowCheckout(false)} />
+        )}
       </div>
     </div>
   );

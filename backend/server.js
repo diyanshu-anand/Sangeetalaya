@@ -1,10 +1,13 @@
+import "./env.js";
 import express from "express";
 import mongoose from "mongoose";
 import dotenv from "dotenv";
 import cors from "cors";
 import router from "./routes/auth.js";
 import courseRoutes from "./routes/courses.js"
+import paymentrouter from "./routes/payments.js";
 dotenv.config();
+
 const app = express();
 
 //Middleware setup
@@ -18,9 +21,9 @@ app.get("/", (req, res)=>{
 
 app.use("/api/auth", router);
 app.use("/api/courses", courseRoutes);
-
+app.use("/api/payments", paymentrouter);
 // MongoDB Connection
-mongoose.connect(process.env.MONGO_URI).then(()=> console.log("mONGOdb cONNECTED")).catch(err => console.log(err));
+mongoose.connect(process.env.MONGO_URI).then(()=> console.log("MONGOdb cONNECTED")).catch(err => console.log(err));
 
 //Server
 const PORT = process.env.PORT|| 5000;
