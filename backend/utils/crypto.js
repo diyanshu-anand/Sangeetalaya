@@ -8,6 +8,9 @@ const HMAC_SECRET = process.env.HMAC_KEY;
 //   throw new Error("❌ AES_KEY or HMAC_KEY missing in environment variables");
 // }
 
+console.log("AES_KEY =", AES_SECRET);
+console.log("HMAC_KEY =", HMAC_SECRET);
+
 const AES_KEY = Buffer.from(AES_SECRET, "hex");
 const HMAC_KEY = Buffer.from(HMAC_SECRET, "hex");
 
