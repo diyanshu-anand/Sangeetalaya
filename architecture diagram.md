@@ -1,4 +1,4 @@
-It is a visual blueprint that illustrates how a system, software application, or physical building is structured, how its components interact, and how data or people move through it.
+It is a visual blueprint that illustrates how a system, software application is structured, how its components interact, and how data move through it.
 
 Brief Info-
 
